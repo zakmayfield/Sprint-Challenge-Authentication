@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-const Login = () => {
+const Login = (props) => {
 
   const [loginApi] = useState(`http://localhost:3300/api/auth/login`)
 
@@ -22,8 +23,9 @@ const Login = () => {
 
     axios.post(loginApi, creds)
       .then(res => {
-        console.log(res)
-        localStorage.setItem('TOKEN', res.data.token)
+        console.log(res);
+        localStorage.setItem('TOKEN', res.data.token);
+        props.history.push("/");
       })
       .catch(err => {
         console.log(err)

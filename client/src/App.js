@@ -13,6 +13,9 @@ function App() {
           <Link to="/">Jokes</Link>
           <Link to="/signup">Sign Up</Link>
           <Link to="/login">Log In</Link>
+          <Link to="/login" onClick={() => {
+            localStorage.clear();
+          }}>Log out</Link>
         </nav>
 
         <Switch>
