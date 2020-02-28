@@ -5,7 +5,7 @@ describe('POST /api/auth/register', function () {
   it('should return status 201', function () {
     return request(server)
       .post('/api/auth/register')
-      .send({ username: "testing10", password: "pass" })
+      .send({ username: "testing14", password: "pass" })
       .then(res => {
         expect(res.status).toBe(201);
       })
@@ -14,7 +14,7 @@ describe('POST /api/auth/register', function () {
   it('should return an array of users', function(){
     return request(server)
       .post('/api/auth/register')
-      .send({ username: "testing11", password: "pass" })
+      .send({ username: "testing15", password: "pass" })
       .then(res => {
         expect(Array.isArray(res.body)).toBe(true)
       })
