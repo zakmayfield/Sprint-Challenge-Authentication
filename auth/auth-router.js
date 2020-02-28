@@ -5,6 +5,7 @@ const { jwtSecret } = require('../config/secrets.js');
 
 const Users = require('../api/model.js');
 
+
 router.post('/register', (req, res) => {
   let user = req.body;
   const hash = bcrypt.hashSync(user.password, 10);
@@ -37,6 +38,7 @@ router.post('/login', (req, res) => {
     })
 });
 
+
 function generateToken(user) {
   const payload = {
     username: user.username,
@@ -48,5 +50,6 @@ function generateToken(user) {
 
   return jwt.sign(payload, jwtSecret, options);
 }
+
 
 module.exports = router;
